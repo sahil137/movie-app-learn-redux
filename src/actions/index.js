@@ -5,6 +5,8 @@
 //     type: 'DECREASE_COUNT'
 // }
 
+// import { movies } from "../reducers";
+
 
 // Action types
 export const ADD_MOVIES = 'ADD_MOVIES';
@@ -38,4 +40,21 @@ export function setShowFavourites(val){
         type: SET_SHOW_FAVOURITES,
         val
     }
+}
+
+export function handleMovieSearch(movie){
+    const url = `http://www.omdbapi.com/?apikey=e6df134c&t=${movie}`;
+
+    return function(dispatch){
+        fetch(url)
+        .then(response => response.json())
+        .then(movie => {
+            console.log('movie', movie);
+    
+            // dispatch an action
+            // dispatch ({type: 'ADD_SEARCH_RESULT', movie})
+            
+        })
+    }
+
 }
