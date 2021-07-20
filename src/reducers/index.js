@@ -17,6 +17,8 @@ const initalMovieState = {
 }
 
 export function movies (state = initalMovieState, action){
+    // fetch movies and add in store, for now we are getting it from a file
+    // later we will get it from an API
     // if (action.type === ADD_MOVIES){
     //     return {
     //         ...state,
@@ -38,7 +40,7 @@ export function movies (state = initalMovieState, action){
             }
         case REMOVE_FROM_FAVOURITES:
             const newArray = state.favourites.filter(
-                movie => movie.Title !== action.movie.Title
+                (movie) => movie.Title !== action.movie.Title
             );
             return{
                 ...state,
